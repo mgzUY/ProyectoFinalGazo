@@ -1,0 +1,214 @@
+@import "variablesmixin";
+@import "https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&family=Sora:wght@300;600&display=swap";
+/* Navbar- */
+/* PARTICULAS */
+/* ---- reset ---- */
+/* ---- particles.js container ---- */
+/* ---- stats.js ---- */
+/* Carrusel */
+/* Estilos de los ítems del carrusel */
+/* Animación del carrusel */
+@keyframes carousel-animation {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* CELDAS CON PRODUCTOS */
+/* FOOTER */
+/* CONTACTO */
+#logo {
+  width: 100px;
+  height: 50px;
+  color: indianred;
+}
+.bg-color {
+  background: linear-gradient(to right, $colorRosadoClaro, rgb(255, 119, 0));
+}
+.navbar-brand {
+  color: #000022;
+  font-family: "Sora", sans-serif;
+}
+.navbar-collapse {
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: $colorBotonesNav;
+        font-size: 20px;
+        font-family: "Sora", sans-serif;
+      }
+    }
+  }
+}
+.form-inline {
+  .btn {
+    color: $colorBotonesNav;
+    border-color: $colorBotonesNav;
+    &:hover {
+      background-color: $colorBotonesNav;
+    }
+  }
+}
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+}
+canvas {
+  display: block;
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  @include fondoBlanco;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -1;
+}
+.count-particles {
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13e8e9;
+  font-size: 0.8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-radius: 0 0 3px 3px;
+}
+.js-count-particles {
+  font-size: 1.1em;
+}
+#stats {
+  margin-top: 5px;
+  margin-left: 5px;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+.carousel {
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  align-items: center;
+  margin-top: 5px;
+}
+.carrusel-inner {
+  display: flex;
+  animation: carousel-animation 10s infinite;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carrusel-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+}
+.estilo-customizado {
+  color: white;
+  font-size: 40px;
+  transition: color 0.3s;
+  font-weight: bold;
+  &:hover {
+    color: $colorRosadoClaro;
+    border: 2px solid $colorRosadoClaro;
+    border-color: transparent;
+  }
+}
+.carrousel-pequeño {
+  display: none;
+}
+.slide1 {
+  @include fondoBlanco;
+}
+.slide2 {
+  @include fondoBlanco;
+}
+.slide3 {
+  @include fondoBlanco;
+}
+.card {
+  transition: transform 0.2s;
+  margin-bottom: 40px;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px 0 $colorRosadoClaro, 0 5px 15px 0 rgb(255, 119, 0);
+  }
+}
+.footer {
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    &:hover {
+      color: $colorRosadoClaro;
+      text-decoration: none;
+    }
+  }
+}
+.container {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+.btn-lineup {
+  background-color: #f57c00;
+  color: white;
+  &:hover {
+    background-color: #c75e00;
+    color: white;
+  }
+}
+.form-control {
+  border-radius: 0;
+}
+.required {
+  color: red;
+}
+@media (max-width: 770px) {
+  #myCarousel {
+    .carousel-item.active {
+      img {
+        content: url("../img/carrousel1-low.jpg");
+      }
+    }
+    .carousel-item {
+      &:nth-child(2) {
+        img {
+          content: url("../img/carrousel2-low.png");
+        }
+      }
+      &:nth-child(3) {
+        img {
+          content: url("../img/carrousel3-low.jpg");
+        }
+      }
+    }
+  }
+  .carrousel-pequeño {
+    display: flex;
+    width: 150%;
+    height: auto;
+  }
+  .carrousel-grande {
+    display: none;
+  }
+}

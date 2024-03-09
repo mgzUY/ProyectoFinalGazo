@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="Descubre nuestra amplia selección de cartas TCG de Pokémon, One Piece y Dragon Ball Z en venta. Compra a precios bajos y recibe tu compra en tiempo récord. ¡Visita hoy mismo www.mgzcards.com!">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style/estilos.css">
+
+  <!-- Sweet Alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>MGZCARDS</title>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-color">
+    <a class="navbar-brand" href="index.html">
+      <img id="logo" src="img/logo.png" alt="MGZCARDS">
+      <p>MGZCARDS</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="html/pokemon.html">Pokemon</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="html/onepiece.html">One Piece</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="html/dragonball.html">Dragon Ball Z</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" colour="orange">
+            Sobre TCG
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="html/pokemontcg.html">Historia del Pokemon TCG</a>
+            <a class="dropdown-item" href="html/conoce.html">Conoce sobre TCG</a>
+          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="html/contacto.html">Contacto</a>
+        </li>
+        </li>
+      </ul>
+      <div class="container mt-5">
+        <form class="form-inline my-2 my-lg-0" id="search-form">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </div>
+
+      <button type="button" class="btn btn-secondary" id="view-cart-btn">Carrito</button>
+      <div id="cart-summary" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cartSummaryLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="cartSummaryLabel">Carrito de compras</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-danger" onclick="clearCart()">Vaciar carrito</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+  <main>
+
+    <!-- CARRUSEL -->
+    <div class="container d-flex justify-content-center">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="carrousel-grande" src="img/CARROUSEL 1.jpg" alt="Ofertas Navideñas">
+            <a class="carrousel-pequeño" href="#"><img src="img/carrousel1-low.jpg" alt="Ofertas Navideñas Low"></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h4 class="estilo-customizado">Ofertas Navideñas</h5>
+                <p><a href="#" class="btn btn-primary">Visita</a></p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img class="carrousel-grande" src="img/CARROUSEL 2.png" alt="Mas Populares">
+            <a class="carrousel-pequeño" href="html/pokemon.html"><img src="img/carrousel1-low.jpg"
+                alt="Mas Populares Low"></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h4 class="estilo-customizado">Mas Populares</h5>
+                <p><a href="html/pokemon.html" class="btn btn-primary">Visita</a></p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img class="carrousel-grande" src="img/CARROUSEL 3.jpg" alt="Descubre One Piece">
+            <a class="carrousel-pequeño" href="html/onepiece.html"><img src="html/onepiece.html"
+                alt="Descubre One Piece Low"></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h4 class="estilo-customizado">Descubre One Piece TCG</h5>
+                <p><a href="html/onepiece.html" class="btn btn-primary">Visita</a></p>
+            </div>
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- PRODUCTOS -->
+
+
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">BEST SELLERS</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/BB151.jpg" class="card-img-top" alt="Booster Bundle 151 [INGLES]">
+            <div class="card-body">
+              <h5 class="card-title">Booster Bundle 151 [INGLES]</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Precio: $50.00</h6>
+              <button type="button" class="btn btn-primary">Mas Informacion</button>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-product-title="Booster Bundle 151 [INGLES]" data-product-price="$50.00">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/BBPR.jpg" class="card-img-top" alt="Booster Box Paradox Rift [INGLES]">
+            <div class="card-body">
+              <h5 class="card-title">Booster Box Paradox Rift [INGLES]</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Precio: $160.00</h6>
+              <button type="button" class="btn btn-primary">Mas Informacion</button><button type="button"
+                class="btn btn-primary add-to-cart-btn" data-product-title="Booster Box Paradox Rift [INGLES]"
+                data-product-price="$160.00">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/UP151.jpg" class="card-img-top" alt="Ultra-Premium Collection 151 [INGLES]">
+            <div class="card-body">
+              <h5 class="card-title">Ultra-Premium Collection 151 [INGLES]</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Precio: $120.00</h6>
+              <button type="button" class="btn btn-primary">Mas Informacion</button>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-product-title="Ultra-Premium Collection 151 [INGLES]" data-product-price="$120.00">Agregar al
+                Carrito</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/ETBCZ.jpg" class="card-img-top" alt="Elite Trainer Box Crown Zenith [INGLES]">
+            <div class="card-body">
+              <h5 class="card-title">Elite Trainer Box Crown Zenith [INGLES]</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Precio: $49.00</h6>
+              <button type="button" class="btn btn-primary">Mas Informacion</button>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-product-title="Elite Trainer Box Crown Zenith [INGLES]" data-product-price="$49.00">Agregar al
+                Carrito</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/BBOP01.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Booster Box OP01 [INGLES]</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Precio: $300.00</h6>
+              <button type="button" class="btn btn-primary">Mas Informacion</button>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-product-title="Booster Box OP01 [INGLES]" data-product-price="$300.00">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/BBOP02.jpg" class="card-img-top" alt="Booster Box OP02 [INGLES]">
+            <div class="card-body">
+              <h5 class="card-title">Booster Box OP02 [INGLES]</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Precio: $180.00</h6>
+              <button type="button" class="btn btn-primary">Mas Informacion</button>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-product-title="Booster Box OP02 [INGLES]" data-product-price="$180.00">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/BBOP05.jpg" class="card-img-top" alt="Booster Box OP05 [INGLES]">
+            <div class="card-body">
+              <h5 class="card-title">Booster Box OP05 [INGLES]</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Precio: $125.00</h6>
+              <button type="button" class="btn btn-primary">Mas Informacion</button>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-product-title="Booster Box OP05 [INGLES]" data-product-price="$150.00">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/OPST10.jpg" class="card-img-top" alt="The Three Captains Ultra Deck ST-10 [INGLES]">
+            <div class="card-body">
+              <h5 class="card-title">The Three Captains Ultra Deck ST-10 [INGLES]</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Precio: $39.99</h6>
+              <button type="button" class="btn btn-primary">Mas Informacion</button>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-product-title="The Three Captains Ultra Deck ST-10 [INGLES]" data-product-price="$50.00">Agregar al
+                Carrito</button>
+            </div>
+          </div>
+        </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer mt-auto py-3 bg-color">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-sm-6">
+          <img src="img/logo.png" alt="MGZCARDS" style="width: 200px; height: auto;">
+          <h4>Sobre Nosotros</h4>
+          <p>MGZCARDS es una tienda de TCG online que ofrece a sus clientes productos de alta calidad.</p>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-6">
+          <h4>Información</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">Términos y Condiciones</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-6">
+          <h4>Enlaces de Interés</h4>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="html/pokemon.html">Pokemon</a></li>
+            <li><a href="html/onepiece.html">One Piece</a></li>
+            <li><a href="html/dragonball.html">Dragon Ball Z</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-6">
+          <h4>Redes Sociales</h4>
+          <p>Síguenos en nuestras redes sociales para mantenerte informado sobre las últimas noticias y promociones.</p>
+          <ul class="list-unstyled">
+            <li><a href="https://www.youtube.com/channel/UCLfptixsC5sau_Wksc1XBew" target="_blank">Youtube</a></li>
+            <li><a href="https://twitter.com/mateogazo" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com/mateogazo/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.twitch.tv/ma7eogz" target="_blank">Twitch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
