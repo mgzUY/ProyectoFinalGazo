@@ -179,6 +179,16 @@ canvas {
 .container {
   margin-top: 40px;
   margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-column {
+  max-width: 250px; /* Establece un ancho máximo para las columnas */
+}
+
+.rowcard {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .btn-lineup {

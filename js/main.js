@@ -1,65 +1,13 @@
 const productos = [
-  { id: 1, nombre: "Booster Bundle 151", idioma: "Ingles", precio: 50, empresa: "The Pokemon Company" },
-  { id: 2, nombre: "Booster Box Paradox Rift", idioma: "Ingles", precio: 160, empresa: "The Pokemon Company" },
-  { id: 3, nombre: "Ultra-Premium Collection 151", idioma: "Ingles", precio: 120, empresa: "The Pokemon Company" },
-  { id: 4, nombre: "Elite Trainer Box Crown Zenith", idioma: "Ingles", precio: 49, empresa: "The Pokemon Company" },
-  { id: 5, nombre: "Booster Box OP01", idioma: "Ingles", precio: 300, empresa: "Bandai Namco Entertainment" },
-  { id: 6, nombre: "Booster Box OP02", idioma: "Ingles", precio: 180, empresa: "Bandai Namco Entertainment" },
-  { id: 7, nombre: "Booster Box OP05", idioma: "Ingles", precio: 125, empresa: "Bandai Namco Entertainment" },
-  { id: 8, nombre: "The Three Captains Ultra Deck ST-10", idioma: "Ingles", precio: 39, empresa: "Bandai Namco Entertainment" }
+  { id: 1, title: "Booster Bundle 151 [INGLES]",imagen: "img/BB151.jpg", idioma: "Ingles", precio: "$ 50.00", empresa: "The Pokemon Company" },
+  { id: 2, title: "Booster Box Paradox Rift [INGLES]",imagen: "img/BBPR.jpg", idioma: "Ingles", precio: "$ 160.00", empresa: "The Pokemon Company" },
+  { id: 3, title: "Ultra-Premium Collection 151 [INGLES]",imagen: "img/UP151.jpg", idioma: "Ingles", precio: "$ 120.00", empresa: "The Pokemon Company" },
+  { id: 4, title: "Booster Box Temporal Forces [INGLES]",imagen: "img/bbtp.png", idioma: "Ingles", precio: "$ 160.00", empresa: "The Pokemon Company" },
+  { id: 5, title: "Booster Box OP01 [INGLES]",imagen: "img/BBOP01.jpg", idioma: "Ingles", precio: "$ 300.00", empresa: "Bandai Namco Entertainment" },
+  { id: 6, title: "Booster Box OP02 [INGLES]",imagen: "img/BBOP02.jpg", idioma: "Ingles", precio: "$ 180.00", empresa: "Bandai Namco Entertainment" },
+  { id: 7, title: "Booster Box OP05 [INGLES]",imagen: "img/BBOP05.jpg", idioma: "Ingles", precio: "$ 125.00", empresa: "Bandai Namco Entertainment" },
+  { id: 8, title: "The Three Captains Ultra Deck ST-10 [INGLES]",imagen: "img/OPST10.jpg", idioma: "Ingles", precio: "$ 39.00", empresa: "Bandai Namco Entertainment" }
 ]
-/*
-class Carrito {
-  constructor() {
-    this.productos = [];
-  }
-  agregarProducto(producto) {
-    this.productos.push(producto);
-  }
-
-  calcularTotal() {
-    let total = 0;
-    this.productos.forEach(producto => {
-      total += producto.precio;
-    });
-    return total;
-  }
-
-  aplicarDescuentoIVA(descuento) {
-    let totalDescontado = this.calcularTotal();
-    totalDescontado -= totalDescontado * (descuento / 100);
-    return totalDescontado;
-  }
-}
-
-let carrito = new Carrito();
-
-for (let i = 0; i < productos.length; i++) {
-  let respuesta = prompt(`Quieres agregar al carrito ${productos[i].nombre}? (Sí/No)`);
-  if (respuesta.toLowerCase() === 'sí' || respuesta.toLowerCase() === 'si') {
-    carrito.agregarProducto(productos[i]);
-  }
-}
-
-let descuentoIVA = parseInt(prompt("Marca 0 si quieres finalizar la compra, de lo contrario marca el porcentaje de descuento IVA (10-22%)"));
-
-while (descuentoIVA < 10 || descuentoIVA > 22) {
-  alert("El descuento IVA debe estar entre 10 y 22%");
-  descuentoIVA = parseInt(prompt("Marca 0 si quieres finalizar la compra, de lo contrario marca el porcentaje de descuento IVA (10-22%)"));
-}
-
-if (descuentoIVA === 0) {
-  console.log("Total a pagar: $" + carrito.calcularTotal());
-} else {
-  console.log("Total a pagar con descuento IVA: $" + carrito.aplicarDescuentoIVA(descuentoIVA));
-}
-if (descuentoIVA === 0) {
-  alert("Total a pagar: $" + carrito.calcularTotal());
-} else {
-  alert("Total a pagar con descuento IVA: $" + carrito.aplicarDescuentoIVA(descuentoIVA));
-} */
-
-// Tercera pre entrega
 
 const searchForm = document.querySelector('#search-form');
 searchForm.addEventListener('submit', handleSearchFormSubmit);
@@ -74,68 +22,51 @@ function handleSearchFormSubmit(event) {
   const productCards = document.querySelectorAll('.card');
   productCards.forEach(card => card.style.display = 'none');
 
-  const filteredProducts = filterProducts(searchTerm);
-
-  displayFilteredProducts(filteredProducts);
+  const filteredProducts =  productos.filter(product => product.title.toLowerCase().includes(searchTerm));
+ 
+ 
+  displayFilteredProducts(productos, filteredProducts);
 }
 
-function filterProducts(searchTerm) {
-  const products = [
-    { title: 'Booster Bundle 151 [INGLES]' },
-    { title: 'Booster Box Paradox Rift [INGLES]' },
-    { title: 'Ultra-Premium Collection 151 [INGLES]' },
-    { title: 'Elite Trainer Box Crown Zenith [INGLES]' },
-    { title: 'Booster Box OP01 [INGLES]' },
-    { title: 'Booster Box OP02 [INGLES]' },
-    { title: 'Booster Box OP05 [INGLES]' },
-    { title: 'The Three Captains Ultra Deck ST-10 [INGLES]' },
-  ];
-
-  return products.filter(product => product.title.toLowerCase().includes(searchTerm));
-}
-
-function displayFilteredProducts(filteredProducts) {
+function displayFilteredProducts(productos, filteredProducts) {
+  const productContainer = document.querySelector('.row');
   const productCards = document.querySelectorAll('.card');
 
-  filteredProducts.forEach((product, index) => {
-    if (index < productCards.length) {
-      productCards[index].style.display = 'block';
-    } else {
+  productContainer.innerHTML = '';
 
-      const newCard = createProductCard(product.title);
-      document.querySelector('.row').appendChild(newCard);
-    }
-  });
-
-  productCards.forEach(card => {
-    if (!filteredProducts.some(product => product.title === card.querySelector('.card-title').textContent.trim())) {
-      card.style.display = 'none';
-    }
+  productos.forEach(product => {
+      if (filteredProducts.some(filteredProduct => filteredProduct.title.toLowerCase().trim() === product.title.toLowerCase().trim())) {
+          const newCard = createProductCard(product);
+          productContainer.appendChild(newCard);
+      }
   });
 }
+const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+addToCartButtons.forEach(button => button.addEventListener('click', handleAddToCart));
 
-function createProductCard(productTitle) {
+
+function createProductCard(product) {
+  const column = document.createElement('div');
+  column.classList.add('col-md-3', 'product-column');
   const card = document.createElement('div');
   card.classList.add('col-md-3');
 
   card.innerHTML = `
     <div class="card">
-      <img src="img/BB151.jpg" class="card-img-top" alt="${productTitle}">
+      <img src="${product.imagen}" class="card-img-top" alt="${product.title}">
       <div class="card-body">
-        <h5 class="card-title">${productTitle}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Precio: $50.00</h6>
+        <h5 class="card-title">${product.title}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Precio: ${product.precio}</h6>
         <button type="button" class="btn btn-primary">Mas Informacion</button>
+        <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-product-title="Elite Trainer Box Crown Zenith [INGLES]" data-product-price="$49.00">Agregar al
+                Carrito</button>
       </div>
     </div>
   `;
 
   return card;
 }
-
-const productButtons = document.querySelectorAll('.btn-primary');
-productButtons.forEach(button => {
-  button.addEventListener('click', handleProductButtonClick);
-});
 
 function handleProductButtonClick(event) {
   const button = event.currentTarget;
@@ -162,9 +93,6 @@ function displayProductDetails(productTitle) {
   const main = document.querySelector('main');
   main.appendChild(productDetailsDiv);
 }
-
-const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-addToCartButtons.forEach(button => button.addEventListener('click', handleAddToCart));
 
 function handleAddToCart(event) {
   const button = event.currentTarget;
